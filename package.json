@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
-    "server": "node server.js"
+    "server": "node app.js"
   },
   "author": "Dag G",
   "license": "ISC",
