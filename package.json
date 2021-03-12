@@ -6,14 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
-    "server": "node app.js"
+    "server": "nodemon app.js"
   },
   "author": "Dag G",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "concurrently": "^6.0.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "qs": "^6.9.6"
   }
 }
