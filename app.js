@@ -43,34 +43,11 @@ const getToken = async () => {
           qs.stringify(data),
           headers
         )
-
-
-
-        // .then(res => {
-        //   console.log(res.data.access_token);
-        //   axios
-        //     .get("https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M", {
-        //       headers: {
-        //         Authorization: "Bearer " + res.data.access_token
-        //       }
-        //     })
-        //     .then(res => {
-        //     //console.log(res.data.tracks.items[2].track.album);
-        //     console.log(res.data);
-        //     return res.data;
-        //   });
-        // });
         let token = response.data.access_token
         console.log(token)
         return token;
-          
-      //console.log(response.data.access_token);
-      //return response.data.access_token;
-    
-
   };
 
-  //getAuth();
 router.get("/todaysTop", (req, resp) => {
   console.log("it get to router")
   getToken()
@@ -80,12 +57,10 @@ router.get("/todaysTop", (req, resp) => {
                 Authorization: "Bearer " + res
               }
             }).then (data => {
-              console.log("data is: ", data.data)
               return resp.json({success: true, data: data.data});
             })
       
     });
-  
 })
 
 
