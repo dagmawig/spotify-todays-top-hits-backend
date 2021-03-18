@@ -49,7 +49,6 @@ const getToken = async () => {
   };
 
 router.get("/todaysTop", (req, resp) => {
-  console.log("it get to router")
   getToken()
     .then(res => {
       axios.get("https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M", {
@@ -62,6 +61,26 @@ router.get("/todaysTop", (req, resp) => {
       
     });
 })
+
+router.post("/trackFeature", (req, resp) => {
+  console.log("it gets to feature router");
+  const { trackID } = req.body;
+  let url = "https://api.spotify.com/v1/audio-features?ids=" + trackID.join("%2C");
+  console.log(url);
+  getToken()
+    .then(res => {
+      axios.get(url, {
+        headers: {
+          Authorization: "Bearer " + res
+        }
+      }).then(data => {
+        return resp.json({success: true, data: data.data});
+      }).catch((e) => {
+        console.log(e);
+      })
+    })
+})
+
 
 
 // append /api for our http requests
